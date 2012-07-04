@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    = csrf_meta_tag
+
+  %body
+
+    - if flash[:notice]
+      %h2= flash[:notice]
+
+    - if flash[:error]
+      %h2= flash[:error]
+
+    = yield
