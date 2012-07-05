@@ -8,4 +8,18 @@ gem 'declarative_authorization'
 gem 'dynamic_form'
 gem 'haml-rails'
 gem 'formtastic'
-gem 'ruby-debug'
+
+
+group :test, :development do
+  gem 'ruby-debug'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'fakeweb'
+  gem 'launchy'
+  gem 'ZenTest'
+  gem 'machinist', '~> 1.0'
+  gem 'rspec', :require => false
+  gem 'rspec-rails'
+  gem 'mocha', :require => false
+end

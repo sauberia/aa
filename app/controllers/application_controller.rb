@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :redirect_if_not_found
   rescue_from Authorization::NotAuthorized, :with => :redirect_if_not_authorized
 
-  #helper_method :current_user_session, :current_user
 
 
   private
@@ -23,14 +22,8 @@ class ApplicationController < ActionController::Base
       @current_user = current_user_session && current_user_session.record
     end
 
-    def clear_current_user
-      remove_instance_variable(:@current_user) if defined?(@current_user)
-      remove_instance_variable(:@current_user_session) if defined?(@current_user_session)
-    end
-
     def logout
       current_user_session.destroy
-      clear_current_user
     end
 
     def require_user
